@@ -4,15 +4,23 @@ MAINTAINER Federico Carrone <federico.carrone@cgmail.com>
 ENV ERLANG_VERSION 17.0
 ENV KERL_CONFIGURE_OPTIONS --with-ssl
 
-RUN apt-get update && apt-get install -y \
-    aufs-tools \
+RUN locale-gen en_US.UTF-8
+ENV LANG en_US.UTF-8
+ENV LANGUAGE en_US:en
+ENV LC_ALL en_US.UTF-8
+
+RUN apt-get update
+RUN apt-get upgrade -y
+
+RUN apt-get install -y \
     libncurses5-dev \
+    openssl \
     libssl-dev \
     automake \
     build-essential \
     curl \
-    git \
-    wget
+    wget \
+    git
 
 # Setup home environment
 RUN useradd dev
