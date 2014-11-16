@@ -23,6 +23,9 @@ RUN apt-get install -y \
     libncurses5-dev \
     openssl \
     libssl-dev \
+    fop \
+    xsltproc \
+    unixodbc-dev \
     automake \
     build-essential \
     curl \
