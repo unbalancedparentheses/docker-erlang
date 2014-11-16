@@ -35,10 +35,11 @@ WORKDIR /home/dev/erlang
 RUN curl -O https://raw.githubusercontent.com/spawngrid/kerl/master/kerl
 RUN chmod a+x kerl
 RUN ./kerl build ${ERLANG_VERSION} ${ERLANG_VERSION}
-RUN ./kerl install ${ERLANG_VERSION} ${ERLANG_VERSION}
-RUN echo ". /home/dev/erlang/${ERLANG_VERSION}/activate" >> ~/.bashrc
+RUN ./kerl install ${ERLANG_VERSION}
+RUN echo ". /home/dev/erlang/activate" >> ~/.bashrc
 
 RUN chown -R dev: /home/dev
 
 WORKDIR /home/dev
 USER dev
+CMD ["/home/dev/erlang/bin/erl"]
