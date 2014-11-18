@@ -10,5 +10,6 @@ end
 set versions (otp_versions)
 
 for version in $versions
-        echo $version
-        end
+        mkdir $version
+        sed "s/^ENV ERLANG_VERSION \(.*\)/ENV ERLANG_VERSION $version/g" base/Dockerfile > $version/Dockerfile
+end
