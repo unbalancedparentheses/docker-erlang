@@ -12,7 +12,7 @@ RUN apt-get upgrade -y
 
 ENV ERLANG_VERSION R16A_RELEASE_CANDIDATE
 ENV REBAR_VERSION 2.5.1
-ENV RELX_VERSION v1.1.0
+ENV RELX_VERSION 1.1.0
 
 RUN locale-gen en_US.UTF-8
 ENV LANG en_US.UTF-8
@@ -47,7 +47,7 @@ RUN cd /usr/src \
     && make \
     && cp rebar /usr/bin/rebar
 
-ADD https://github.com/erlware/relx/archive/${RELX_VERSION}.tar.gz /usr/src/relx-${RELX_VERSION}.tar.gz
+ADD https://github.com/erlware/relx/archive/v${RELX_VERSION}.tar.gz /usr/src/relx-${RELX_VERSION}.tar.gz
 RUN cd /usr/src \
     && tar zxf relx-${RELX_VERSION}.tar.gz \
     && cd relx-${RELX_VERSION} \
