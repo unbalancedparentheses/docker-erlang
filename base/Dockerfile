@@ -7,6 +7,8 @@ MAINTAINER Federico Carrone <federico.carrone@gmail.com>
 # old cached versions when the Dockerfile is built.
 ENV REFRESHED_AT 2015-02-12
 
+RUN apt-get update
+
 ENV ERLANG_VERSION 17.4
 ENV REBAR_VERSION 2.5.1
 ENV RELX_VERSION 1.1.0
