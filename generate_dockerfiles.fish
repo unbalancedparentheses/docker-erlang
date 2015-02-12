@@ -12,4 +12,5 @@ set versions (otp_versions)
 for version in $versions
         mkdir -p $version
         sed "s/^ENV ERLANG_VERSION \(.*\)/ENV ERLANG_VERSION $version/g" base/Dockerfile > $version/Dockerfile
+        cp base/install.sh $version/install.sh
 end
